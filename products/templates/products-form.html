@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block content%}
+	<h1 style="text-align: center;">New/Update Product</h1>
+	<hr/>
+	<br/>
+	<br/>
+	<form method="POST" style="margin: auto;margin-left: 100px;margin-left: 100px; font-style: italic; font-weight: 4px;">
+		{% csrf_token %}
+		{{ form }}
+		<button type="submit" class="btn btn-primary">Save</button>
+	</form>
+	{% if product %}
+	<a href="{% url 'delete_product' product.id %}" class="btn btn-primary" style="margin-left: 80px; text-shadow: 2px; ">Delete</a>
+	{% endif %}
+{%endblock%}
